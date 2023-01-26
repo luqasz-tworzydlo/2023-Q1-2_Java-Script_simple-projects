@@ -2,11 +2,12 @@
 // niniejszy plik pełni u nas funkcję backend'u
 
 const express = require('express') // zaimportowanie pobranej biblioteki
-
 const leki = require('./data') // zaimportowanie leków
+const cors = require('cors') // wyłączenie zabezpieczeń
 
 const app = express()
 app.use(express.json()) // umożliwia odbiór w formacie JSON
+app.use(cors()) // wyłączenie zabezpieczeń, umożliwia testowanie
 
 // stworzenie end point'u ( end pointy to są miejsca, do których strona internetowa się odwołuje, skąd pobiera albo dodaje )
 // pierwszy endpoint - zwracanie informacji o lekach
@@ -43,3 +44,8 @@ app.listen(5001, () => console.log('serwer uruchomiony')) // funkcja strzałkowa
 // http://localhost:5001/leki
 // JSON format [ wtyczka ]
 // postman - testowanie back'endu
+// npx create-react-app stronka => react
+// cd stronka => wejście do stworzonego folderu
+// npm start => uruchomienie strony
+
+// npm i cors => wyłączenie zabezpieczeń w przeglądarce do testowania strony
